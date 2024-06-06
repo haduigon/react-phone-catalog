@@ -1,21 +1,35 @@
-import React from 'react';
+/* eslint-disable */
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 import './App.scss';
+import { Navbar } from './components/navbar/Navbar';
+import { Footer } from './components/footer/Footer';
+import { useRef } from 'react';
+import { BreadCrumbs } from './components/BreadCrumbs/BreadCrumbs';
 
-interface Props {
-  onClick: () => void;
-  children: React.ReactNode;
-}
+export const App = () => {
+  const refForFooter = useRef<null | HTMLDivElement>(null);
 
-export const Provider: React.FC<Props> = React.memo(({ onClick, children }) => (
-  <button type="button" onClick={onClick}>
-    {children}
-  </button>
-));
+  const show = () => {
+    if (refForFooter.current) {
+      refForFooter.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 
-export const App: React.FC = () => {
+  const location = useLocation();
+  const { productId } = useParams();
+  const showBreadCrumbs = location.pathname !== '/' && location.pathname !== '/cart';  
+
   return (
-    <div className="starter">
-      <Provider onClick={() => ({})}>TodoList</Provider>
+    <div className="App">
+      <div ref={refForFooter} />
+      <Navbar />
+      <div className='commonPage-container '>
+        {showBreadCrumbs && <div className={
+          productId === undefined ? 'breadcrumbs' : ''
+        }><BreadCrumbs path={location.pathname} /></div>}
+        <Outlet />
+      </div>
+      <Footer onClick={show} />
     </div>
   );
 };

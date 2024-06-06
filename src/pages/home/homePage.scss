@@ -1,0 +1,150 @@
+body {
+  font-family: Mont, sans-serif;
+}
+
+.banner-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.banner-button {
+  width: 32px;
+  height: 400px;
+  box-sizing: border-box;
+  border: 1px solid #b4bdc3;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  &--left {
+    margin-right: 20px;
+  }
+
+  &--right {
+    margin-left: 20px;
+  }
+
+  @media (max-width: 640px) {
+    display: none;
+  }
+}
+
+.images-container {
+  display: flex;
+  max-width: 1040px;
+  width: 100%;
+  overflow: hidden;
+
+}
+
+.image {
+  width: 1040px;
+  height: 400px;
+  transition-duration: 500ms;
+
+  @media (max-width: 640px) {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+.chunk-container {
+  display: flex;
+  // justify-content: space-between;
+  gap: 16px;
+
+  @media screen and (max-width: 1199px) {
+    overflow: hidden;
+  }
+}
+
+.big-title {
+  color: var(--Gray-Primary, #313237);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.small-title {
+  color: var(--Gray-Secondary, #89939a);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+.chunk-container-big {
+  justify-content: space-between;
+
+  @media (max-width: 639px) {
+    flex-direction: column;
+  }
+}
+
+.hot-prices-block {
+  margin-top: 104px;
+}
+
+.link {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.home-page-header-text {
+  color: var(--gray-primary, #313237);
+  font-family: Mont, sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.32px;
+}
+
+.arrow-box {
+  display: flex;
+}
+
+.header-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.square {
+  width: 368px;
+  height: 368px;
+
+  @media (max-width: 1199px) {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+}
+
+.left {
+  background-color: burlywood;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.category-img {
+  @media (max-width: 1199px) {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    height: auto;
+  }
+}
+
+.chunk-container-category {
+  display: flex;
+
+  @media screen and (max-width: 1199px) {
+    display: grid;
+    grid-template-columns: 32% 32% 32%;
+  }
+  @media (max-width: 639px) {
+    display: flex;
+    flex-direction: column;
+  }
+}

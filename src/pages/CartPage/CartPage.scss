@@ -1,0 +1,128 @@
+.cart-element {
+  width: 752px;
+  height: 128px;
+  box-sizing: border-box;
+  border: 1px solid #e2e6e9;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  @media (max-width: 1199px) {
+    width: 100%;
+  }
+
+  @media (max-width: 639px) {
+    flex-direction: column;
+    height: 200px;
+  }
+}
+
+.cart-box {
+  width: 1180px;
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 1199px) {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.summary {
+  width: 368px;
+  height: 206px;
+  box-sizing: border-box;
+  border: 1px solid #e2e6e9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 1199px) {
+    width: 100%;
+  }
+}
+
+.cart-container {
+  display: flex;
+  width: 100%;
+}
+
+.cart-image {
+  width: 66px;
+  height: 66px;
+}
+
+.cart-name {
+  width: max-content;
+  font-family: Mont, serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+.cart-square-border {
+  width: 32px;
+  height: 32px;
+  box-sizing: border-box;
+  border: 1px solid #e2e6e9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.cart-square {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-price {
+  font-family: Mont, serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%;
+}
+
+.summary-button {
+  color: var(--Gray-White, #fff);
+  text-align: center;
+  font-family: Mont, serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 21px;
+  width: 90%;
+  height: 42px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.cart-button-box {
+  display: flex;
+}
+
+.cart-button-box-chunk {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+  padding-left: 24px;
+  @media (max-width: 639px) {
+    justify-content: space-between;
+    width: 80%;
+    max-width: 400px;
+    padding-left: 0;
+  }
+}
+
+.close {
+  cursor: pointer;
+}
