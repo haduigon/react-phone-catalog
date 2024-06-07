@@ -68,7 +68,6 @@ export const ProductItem: React.FC<Props> = ({ product }) => {
             >
               {product.name}
             </Link>
-
           </p>
         </div>
 
