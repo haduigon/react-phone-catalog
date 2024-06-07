@@ -19,11 +19,11 @@ export const Root = () => (
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<HomePage />} />
-          <Route path="phones">
+          <Route path="phones" >
             <Route index element={<ProductPage />} />
             <Route path=":productId?" element={<ProductCard />} />
           </Route>
-          <Route path="tablets">
+          <Route path="/tablets">
             <Route index element={<ProductPage />} />
             <Route path=":productId?" element={<ProductCard />} />
           </Route>

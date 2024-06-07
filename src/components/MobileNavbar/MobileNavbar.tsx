@@ -27,7 +27,7 @@ const MobileNavbar: React.FC<Props> = ({ onClick }) => {
     classNames('centrum', { 'selected-icons-mob ': isActive });
 
   const location = useLocation();
-
+  
   const { state } = useContext(StateContext);
 
   function customLinkClass(filedName: string) {

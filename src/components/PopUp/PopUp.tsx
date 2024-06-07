@@ -32,7 +32,7 @@ const PopUp: React.FC<Props> = ({ closePopUp }) => {
         <div
           role="button"
           tabIndex={0}
-          className="popup-button"
+          className="popup-button ml-30"
           onClick={cleanTheCart}
           onKeyDown={cleanTheCart}
         >

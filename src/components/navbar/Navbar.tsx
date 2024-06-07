@@ -7,7 +7,11 @@ import {
 } from 'react-router-dom';
 import classNames from 'classnames';
 import './navbar.scss';
-import { useCallback, useContext, useEffect, useState } from 'react';
+import {
+  useCallback,
+  useContext,
+  useEffect, useState
+} from 'react';
 import { StateContext } from '../../AppContext';
 import debounce from 'lodash.debounce';
 import MobileNavbar from '../MobileNavbar/MobileNavbar';
@@ -43,7 +47,11 @@ export const Navbar: React.FC = () => {
   useEffect(() => {
     params.delete('search');
     setSearchParams(params);
-  }, [location.pathname]);
+  }, []);
+
+  useEffect(() => {
+    setSearchQuery('');
+  },[location.pathname])
 
   function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
     applySearchDelayedQuery2(e.target.value);
@@ -76,6 +84,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <div className="navbar-total">
+      {console.count() }
       <div className="navbar">
         <Logo />
         <div className="navbar--flex">
@@ -86,7 +95,7 @@ export const Navbar: React.FC = () => {
                   'selected-nav': homeLinkClass(),
                 })}
               >
-                <NavLink to="/" className={linkClass}>
+                <NavLink to="/" className={linkClass} >
                   Home
                 </NavLink>
               </div>
@@ -96,13 +105,13 @@ export const Navbar: React.FC = () => {
                   'selected-nav': customLinkClass('phones'),
                 })}
               >
-                <NavLink to="/phones" className={linkClass}>
+                <NavLink to="/phones" className={linkClass} >
                   Phones
                 </NavLink>
               </div>
 
               <div className="navbar-box-item">
-                <NavLink to="/tablets" className={linkClass}>
+                <NavLink to="tablets" className={linkClass}>
                   Tablets
                 </NavLink>
               </div>

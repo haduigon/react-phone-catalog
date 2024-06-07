@@ -1,5 +1,4 @@
 /* eslint-disable */
-import { ProductItem } from '../../components/product/ProductItem';
 import React, {
   useContext,
   useEffect,
@@ -11,12 +10,13 @@ import {
   getCurrentItems,
   getPageHeader,
 } from '../../helpers/utils';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams, } from 'react-router-dom';
 import { Pagination } from '../../pagination/Pagination';
 import { Product } from '../../types';
 import { NoResults } from '../NoResults/NoResults';
+import { ProductItem } from '../../components/product/ProductItem';
 
-export const ProductPage: React.FC = () => {
+export const ProductPage = () => {
   const { state, dispatch } = useContext(StateContext);
   const [searchParams, setSearchParams] = useSearchParams();
   const params = new URLSearchParams(searchParams);
@@ -26,10 +26,10 @@ export const ProductPage: React.FC = () => {
   const search = searchParams.get('search') || '';
   const sort = searchParams.get('sort') || 'age';
   const [sortValue, setSortValue] = useState(sort);
-  const location = useLocation();
+  const location = useLocation();  
 
   let currentItems: Product[] = [];
-
+  
   let copyOfProducts: Product[] = [];
 
   useEffect(() => {
@@ -86,7 +86,7 @@ export const ProductPage: React.FC = () => {
         <div>
         <p className="font-header">{getPageHeader(location.pathname)}</p>
       <div className="font-models-amount">{copyOfProducts.length} models</div>
-
+    {console.count()}
 
       <div className="select-block">
 

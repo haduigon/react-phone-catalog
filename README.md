@@ -6,16 +6,16 @@
 
 Simple responsive internet-shop with favourites, cart, search, slider. Done with React Context, router-dom, axios etc. I made a simple node js backend which always returns the same data, provided for the catalog.
 
-# [Demolink](https://haduigon.github.io/react_phone-catalog/#/)
+# [Demolink](https://haduigon.github.io/react-phone-catalog/#/)
 
 # _Status:_
 
 Done
 
-[![GitHub license](https://img.shields.io/github/license/haduigon/react_phone-catalog)](https://github.com/haduigon/react_phone-catalog/blob/master/LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/haduigon/react_phone-catalog)](https://github.com/haduigon/react_phone-catalog/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues/haduigon/react_phone-catalog)](https://github.com/haduigon/react_phone-catalog/issues)
-[![GitHub forks](https://img.shields.io/github/forks/haduigon/react_phone-catalog)](https://github.com/haduigon/react_phone-catalog/network)
+[![GitHub license](https://img.shields.io/github/license/haduigon/react-phone-catalog)](https://github.com/haduigon/react-phone-catalog/blob/master/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/haduigon/react-phone-catalog)](https://github.com/haduigon/react-phone-catalog/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/haduigon/react-phone-catalog)](https://github.com/haduigon/react-phone-catalog/issues)
+[![GitHub forks](https://img.shields.io/github/forks/haduigon/react-phone-catalog)](https://github.com/haduigon/react-phone-catalog/network)
 
 # Technologies list:
 
