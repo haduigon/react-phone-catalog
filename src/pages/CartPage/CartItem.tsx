@@ -56,7 +56,7 @@ export const CartItem : React.FC<Props> = ({ summary, reduce, phone }) => {
           </div>
 
           <div className="cart-name ">
-            {phone && phone.name.slice(0, phone.name.length - 8)}
+            {phone && phone.name}
           </div>
         </div>
 

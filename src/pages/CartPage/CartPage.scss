@@ -20,6 +20,7 @@
   width: 1180px;
   display: flex;
   justify-content: space-between;
+  min-height: 66vh;
 
   @media (max-width: 1199px) {
     flex-direction: column;
