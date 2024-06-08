@@ -15,18 +15,21 @@ export const Footer: React.FC<Props> = ({ onClick }) => {
         <NavLink
           to="https://github.com/mate-academy/react_phone-catalog/pull/361"
           className="footer-center-text mr-64"
+          target="_blank"
         >
           Github
         </NavLink>
         <NavLink
           to="https://github.com/mate-academy/react_phone-catalog/pull/361"
           className="footer-center-text mr-64"
+          target="_blank"
         >
           Contacts
         </NavLink>
         <NavLink
           to="https://github.com/mate-academy/react_phone-catalog/pull/361"
           className="footer-center-text mr-64"
+          target="_blank"
         >
           Rights
         </NavLink>

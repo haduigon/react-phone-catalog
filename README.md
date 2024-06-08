@@ -60,10 +60,9 @@ npm start
 # _Screenshots are bellow:_
 
 <details>
-  <img width="1792" alt="Screenshot 2024-06-05 at 16 29 19" src="https://github.com/haduigon/react_phone-catalog/assets/20277989/7ab8607f-dc9f-4def-8b11-e1aae73d1a93">
-<img width="1792" alt="Screenshot 2024-06-05 at 16 30 09" src="https://github.com/haduigon/react_phone-catalog/assets/20277989/a00f3d9e-bae9-4337-a1a7-419515d0fcef">
-<img width="1792" alt="Screenshot 2024-06-05 at 16 30 27" src="https://github.com/haduigon/react_phone-catalog/assets/20277989/f2af4034-977b-49eb-930f-3b104f9eb1e7">
-
+<img width="1792" alt="Screenshot 2024-06-05 at 16 29 19" src="https://github.com/haduigon/react-phone-catalog/assets/20277989/7f2d192a-74cd-48db-b5a9-c9a75eb11948">
+<img width="1792" alt="Screenshot 2024-06-05 at 16 29 59" src="https://github.com/haduigon/react-phone-catalog/assets/20277989/eb760cff-d28e-4e20-b210-d09a323dfbd1">
+<img width="1792" alt="Screenshot 2024-06-05 at 16 30 27" src="https://github.com/haduigon/react-phone-catalog/assets/20277989/81d10459-3ed3-4bcd-98b3-33514cf9da7d">
 </details>
 
 # Reflection

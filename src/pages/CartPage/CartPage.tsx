@@ -2,7 +2,6 @@ import './CartPage.scss';
 import { useState, useContext, useEffect } from 'react';
 import { CartItem } from './CartItem';
 import { StateContext } from '../../AppContext';
-import { NoResults } from '../NoResults/NoResults';
 import { Product } from '../../types';
 import { getUniqueItems } from '../../helpers/utils';
 import { BackButton } from '../../components/BackButton/BackButton';
@@ -61,18 +60,15 @@ export const CartPage: React.FC = () => {
                 );
               })
             ) : (
-              <NoResults headline="Your cart is empty" />
+              <div className="empty-cart-box">
+                <div>Your cart is empty</div>
+              </div>
             )}
           </div>
 
           <div className="summary">
             <div>{cartSummary}</div>
-            <div className="mb-24">
-              Total for
-              {state.card.length}
-              {' '}
-              items
-            </div>
+            <div className="mb-24">Total</div>
             <div className="grey-line mb-24" style={{ width: '90%' }} />
             <div
               className="summary-button"
@@ -86,9 +82,7 @@ export const CartPage: React.FC = () => {
           </div>
         </div>
       </div>
-      {showPopUp && (
-        <PopUp closePopUp={setShowPopUp} />
-      )}
+      {showPopUp && <PopUp closePopUp={setShowPopUp} />}
     </div>
   );
 };

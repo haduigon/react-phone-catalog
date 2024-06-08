@@ -1,3 +1,5 @@
+import './NoResult.scss';
+
 type Props = {
   headline?: string,
 };
@@ -7,12 +9,12 @@ export const NoResults: React.FC<Props> = ({
 }) => {
   return (
     <div
-      className="commonPage-container font-header"
+      className="font-header page-not-found"
       style={{
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '400px',
+        height: '68vh',
       }}
     >
       {headline}

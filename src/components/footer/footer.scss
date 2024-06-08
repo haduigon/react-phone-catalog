@@ -1,7 +1,6 @@
 .footer {
   height: 96px;
   width: 100%;
-  max-width: 1440px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -55,6 +54,7 @@
   letter-spacing: 0.48px;
   text-transform: uppercase;
   text-decoration: none;
+  // target-name:new;
 }
 
 .mr-64:not(:last-child) {

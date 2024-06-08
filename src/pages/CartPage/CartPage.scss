@@ -126,3 +126,13 @@
 .close {
   cursor: pointer;
 }
+
+.empty-cart-box {
+  @media (min-width: 1200px) {
+    height: 65vh;
+    padding-left: 30%;
+    width: 400px;
+  }
+  height: 40vh;
+  text-align: center;
+}
