@@ -72,8 +72,10 @@ export const ProductItem: React.FC<Props> = ({ product }) => {
         </div>
 
         <div className="list-item-price pb-8">
-          <div style={{ paddingRight: "8px" }}>{product.price}</div>
-          <div className="grey done">{product.price}</div>
+          <div style={{ paddingRight: "8px" }}>{`$${(+product.price.slice(1) * (1 - product.discount / 100)).toFixed(2)}`}</div>
+          {product.discount > 0 && (
+            <div className="grey done">{product.price}</div>
+          )}
         </div>
 
         <div className="list-item-line "></div>

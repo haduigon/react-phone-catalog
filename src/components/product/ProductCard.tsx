@@ -37,12 +37,19 @@ export const ProductCard: React.FC = () => {
   useEffect(() => {
     setAccidentalArray(getRandomArray(state.products));
     if (productId) {
-      setProduct(
-        state.products.find(phone => phone.id === +productId) as Product,
-      );
-      setLocalCopy(
-        state.products.find(phone => phone.id === +productId) as Product,
-      );
+      setProduct(() => {
+        const newProduct = state.products.find(
+          phone => phone.id === +productId,
+        );
+
+        if (newProduct) {
+          const newValue = `$${(+newProduct.price.slice(1) * (1 - newProduct.discount / 100)).toFixed(2)}`;
+          newProduct.price = newValue;
+        }
+        return newProduct;
+      });
+
+      setLocalCopy(state.products.find(phone => phone.id === +productId));
       if (product) {
         setPicSet(product.picsArray);
         setAbout(product.description.split('/'));
@@ -69,17 +76,22 @@ export const ProductCard: React.FC = () => {
 
     if (product?.price) {
       if (selectedCapacity === '64 GB') {
-        newProduct.price = '$' + Math.round(newPrice);
+        newProduct.price =
+          '$' + (newPrice * (1 - newProduct.discount / 100)).toFixed(2);
       }
       if (selectedCapacity === '256 GB') {
-        newProduct.price = '$' + Math.round(newPrice * 1.2);
+        newProduct.price = '$' + (newPrice * 1.2).toFixed(2);
       }
       if (selectedCapacity === '512 GB') {
-        newProduct.price = '$' + Math.round(newPrice * 1.3);
+        newProduct.price = '$' + (newPrice * 1.3).toFixed(2);
       }
       setProduct(newProduct);
-      setFullPrice(`$${Number(+newProduct.price.slice(1) * (1 - newProduct.discount / 100)).toFixed(2)}`);
-      setFinalPrice(`$${Number(+newProduct.price.slice(1) * (1 - newProduct.discount / 100)).toFixed(2)}`);
+      setFullPrice(`$${Number(+newProduct.price.slice(1)).toFixed(2)}`);
+      setFinalPrice(
+        `$${Number(
+          +newProduct.price.slice(1) * (1 - newProduct.discount / 100),
+        ).toFixed(2)}`,
+      );
     }
   }, [selectedCapacity, localCopy]);
 
@@ -232,9 +244,9 @@ export const ProductCard: React.FC = () => {
                       <div className="product-card-price mr-8">
                         {finalPrice}
                       </div>
-                      <div className="done grey font22">
-                        {fullPrice}
-                      </div>
+                      {product.discount > 0 && (
+                        <div className="done grey font22">{fullPrice}</div>
+                      )}
                     </div>
                   </div>
 

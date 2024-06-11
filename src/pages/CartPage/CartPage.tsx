@@ -69,7 +69,7 @@ export const CartPage: React.FC = () => {
           <div className="summary">
             {cartSummary > 0 && (
               <>
-                <div>{`$${cartSummary}`}</div>
+                <div>{`$${cartSummary.toFixed(2)}`}</div>
                 <div className="">Total</div>
                 <div className="mb-24">
                   {state.card.length}
