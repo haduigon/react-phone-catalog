@@ -84,7 +84,6 @@ export const Navbar = () => {
 
   return (
     <div className="navbar-total">
-      {console.count() }
       <div className="navbar">
         <Logo />
         <div className="navbar--flex">

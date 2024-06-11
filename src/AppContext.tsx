@@ -2,7 +2,7 @@
 import { Dispatch, useEffect, useReducer } from "react";
 import { ACTIONS } from "./helpers/utils";
 import React from "react";
-import { Product } from "./types";
+import { Product, FinalProduct } from "./types";
 import axios from "axios";
 import { getAge, priceSort } from "./helpers/utils";
 import { useSearchParams } from "react-router-dom";
@@ -19,7 +19,7 @@ interface Data {
   itemsPerPage: string,
   favourites: Array<Product>
   products: Array<Product>
-  card: Product[],
+  card: FinalProduct[],
   render: boolean,
 }
 

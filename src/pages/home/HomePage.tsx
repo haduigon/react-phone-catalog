@@ -18,7 +18,6 @@ export const HomePage = () => {
   return (
     <div>
       <BigSlider render={location.pathname} />
-
       <PaginationSlider
         pageName="pageTop"
         headline="Hot prices"

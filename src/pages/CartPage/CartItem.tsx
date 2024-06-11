@@ -1,13 +1,15 @@
 import { useContext } from 'react';
 import './CartPage.scss';
-import { Product } from '../../types';
+import {
+  FinalProduct,
+} from '../../types';
 import { StateContext } from '../../AppContext';
 import { ACTIONS, useDeleteAllSimilar } from '../../helpers/utils';
 
 type Props = {
   summary: (amount: number) => void,
   reduce: (amount: number) => void,
-  phone: Product,
+  phone: FinalProduct,
 };
 
 export const CartItem : React.FC<Props> = ({ summary, reduce, phone }) => {
@@ -20,12 +22,12 @@ export const CartItem : React.FC<Props> = ({ summary, reduce, phone }) => {
 
   function deleteItem() {
     if (state.card.filter(elem => elem.id === phone.id).length > 0) {
-      reduce(+phone.price.slice(1));
+      reduce(+phone.finalPrice.slice(1));
       dispatch({ type: ACTIONS.DELETE_FROM_CARD, payload: phone });
     }
   }
 
-  const totalMoney = Number(phone?.price.slice(1))
+  const totalMoney = Number(phone?.finalPrice.slice(1))
     * state.card.filter(elem => elem.id === phone.id).length;
 
   return (
@@ -91,7 +93,7 @@ export const CartItem : React.FC<Props> = ({ summary, reduce, phone }) => {
             </div>
           </div>
           <div className="cart-price " data-cy="productQauntity">
-            {`$${totalMoney}`}
+            {`$${totalMoney.toFixed(2)}`}
           </div>
         </div>
       </div>

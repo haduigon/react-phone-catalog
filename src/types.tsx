@@ -21,3 +21,7 @@ export interface Product {
   zoom: string,
   cell: string,
 }
+
+export interface FinalProduct extends Product {
+  finalPrice: string;
+}

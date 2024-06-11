@@ -10,46 +10,38 @@ import { ColorCircleElement } from './ColorCircleElement';
 import { CapacityChoiceElement } from './CapacityChoiceElement';
 import { StateContext } from '../../AppContext';
 import { ACTIONS, getFavourite, getRandomArray } from '../../helpers/utils';
-import { Product } from '../../types';
+import { Product, FinalProduct } from '../../types';
 import { TechSpecParagraph } from './TechSpecParagraph';
 import { BackButton } from '../BackButton/BackButton';
+
+
 
 export const ProductCard: React.FC = () => {
   const [selectedColor, setSelectedColor] = useState('yellow');
   const [selectedCapacity, setSelectedCapacity] = useState('64 GB');
   const { productId } = useParams<string>();
   const topPageRef = useRef<null | HTMLDivElement>(null);
-
-  const [product, setProduct] = useState<Product>();
-  const [bigPic, setBigPic] = useState('');
-
   const { state, dispatch } = useContext(StateContext);
 
-  const [picSet, setPicSet] = useState<string[]>([]);
-  const [about, setAbout] = useState<string[]>([]);
-  const [localCopy, setLocalCopy] = useState<Product>();
+  const [product, setProduct] = useState<any>();
+  const [bigPic, setBigPic] = useState('');
 
-  const [fullPrice, setFullPrice] = useState<string>('');
-  const [finalPrice, setFinalPrice] = useState<string>('');
+  const [picSet, setPicSet] = useState<string[]>(['']);
+  const [about, setAbout] = useState<string[]>([]);
+  const [localCopy, setLocalCopy] = useState<FinalProduct | Product>();
 
   const [accidentalArray, setAccidentalArray] = useState<Product[]>([]);
 
   useEffect(() => {
+    if (productId) {
+      setLocalCopy(state.products.find(phone => phone.id === +productId));
+    }
+  }, [product]);
+
+  useEffect(() => {
     setAccidentalArray(getRandomArray(state.products));
     if (productId) {
-      setProduct(() => {
-        const newProduct = state.products.find(
-          phone => phone.id === +productId,
-        );
-
-        if (newProduct) {
-          const newValue = `$${(+newProduct.price.slice(1) * (1 - newProduct.discount / 100)).toFixed(2)}`;
-          newProduct.price = newValue;
-        }
-        return newProduct;
-      });
-
-      setLocalCopy(state.products.find(phone => phone.id === +productId));
+      setProduct(state.products.find(phone => phone.id === +productId));
       if (product) {
         setPicSet(product.picsArray);
         setAbout(product.description.split('/'));
@@ -71,27 +63,25 @@ export const ProductCard: React.FC = () => {
 
   useEffect(() => {
     const newProduct: any = { ...localCopy };
-
     const newPrice = Number(localCopy?.price.slice(1));
 
     if (product?.price) {
       if (selectedCapacity === '64 GB') {
-        newProduct.price =
+        newProduct.finalPrice =
           '$' + (newPrice * (1 - newProduct.discount / 100)).toFixed(2);
       }
       if (selectedCapacity === '256 GB') {
-        newProduct.price = '$' + (newPrice * 1.2).toFixed(2);
+        const newPrice256 = newPrice * 1.2;
+        newProduct.price = '$' + newPrice256.toFixed(2);
+        newProduct.finalPrice = '$' + ((newPrice256 * (1 - newProduct.discount / 100))).toFixed(2);
       }
       if (selectedCapacity === '512 GB') {
-        newProduct.price = '$' + (newPrice * 1.3).toFixed(2);
+        const newPrice256 = newPrice * 1.3;
+        newProduct.price = '$' + newPrice256.toFixed(2);
+        newProduct.finalPrice = '$' + (newPrice * 1.3 * (1 - newProduct.discount / 100)).toFixed(2);
       }
       setProduct(newProduct);
-      setFullPrice(`$${Number(+newProduct.price.slice(1)).toFixed(2)}`);
-      setFinalPrice(
-        `$${Number(
-          +newProduct.price.slice(1) * (1 - newProduct.discount / 100),
-        ).toFixed(2)}`,
-      );
+
     }
   }, [selectedCapacity, localCopy]);
 
@@ -242,10 +232,10 @@ export const ProductCard: React.FC = () => {
                   <div className="upper-box-text mb-16">
                     <div className="dflex">
                       <div className="product-card-price mr-8">
-                        {finalPrice}
+                        {product.finalPrice}
                       </div>
                       {product.discount > 0 && (
-                        <div className="done grey font22">{fullPrice}</div>
+                        <div className="done grey font22">{product.price}</div>
                       )}
                     </div>
                   </div>

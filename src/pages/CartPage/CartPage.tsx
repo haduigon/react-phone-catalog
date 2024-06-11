@@ -2,7 +2,7 @@ import './CartPage.scss';
 import { useState, useContext, useEffect } from 'react';
 import { CartItem } from './CartItem';
 import { StateContext } from '../../AppContext';
-import { Product } from '../../types';
+import { FinalProduct } from '../../types';
 import { getUniqueItems } from '../../helpers/utils';
 import { BackButton } from '../../components/BackButton/BackButton';
 import PopUp from '../../components/PopUp';
@@ -10,7 +10,7 @@ import PopUp from '../../components/PopUp';
 export const CartPage: React.FC = () => {
   const [cartSummary, setCartSummary] = useState<number>(0);
   const { state } = useContext(StateContext);
-  const [uniqueItems, setUniqueItems] = useState<Array<Product>>();
+  const [uniqueItems, setUniqueItems] = useState<Array<FinalProduct>>();
 
   const uniqueItemsLocal = getUniqueItems(state.card);
   const [showPopUp, setShowPopUp] = useState(false);
@@ -27,7 +27,7 @@ export const CartPage: React.FC = () => {
     let totalSumm = 0;
 
     state.card.map(elem => {
-      totalSumm += +elem.price.slice(1);
+      totalSumm += +elem.finalPrice.slice(1);
 
       return totalSumm;
     });

@@ -16,6 +16,7 @@ import { Product } from '../../types';
 import { NoResults } from '../NoResults/NoResults';
 import { ProductItem } from '../../components/product/ProductItem';
 
+
 export const ProductPage = () => {
   const { state, dispatch } = useContext(StateContext);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -33,7 +34,7 @@ export const ProductPage = () => {
   let copyOfProducts: Product[] = [];
 
   useEffect(() => {
-    window.scrollTo(-10, -10);
+    window.scrollTo(0, 0);
   }, []);
 
   if (state.products) {

@@ -7,7 +7,7 @@ type Props = {
 
 export const TechSpecParagraph: React.FC<Props> = ({
   fieldName,
-  fieldDescription,
+  fieldDescription = '',
 }) => {
   return (
     <div className="dflex mb-8" style={{ justifyContent: 'space-between' }}>

@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { useSearchParams } from "react-router-dom";
-import { Product } from "../types";
+import { Product, FinalProduct } from "../types";
 import { useContext } from "react";
 import { StateContext } from "../AppContext";
 import _ from "lodash";
@@ -62,8 +62,8 @@ export function getAge(a: Product,b: Product) {
   return 0;
 }
 
-export function getUniqueItems(array: Product[]) {
-  const tempUniqueItems: Product[] = [];
+export function getUniqueItems(array: FinalProduct[]) {
+  const tempUniqueItems: FinalProduct[] = [];
   for (let i = 0; i <= array.length - 1; i++) {
     const temp = tempUniqueItems.find(elem => elem.id === array[i].id);
     if (temp === undefined) {
