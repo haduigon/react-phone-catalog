@@ -17,7 +17,7 @@ import debounce from 'lodash.debounce';
 import MobileNavbar from '../MobileNavbar/MobileNavbar';
 import Logo from '../Logo';
 
-export const Navbar: React.FC = () => {
+export const Navbar = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const params = new URLSearchParams(searchParams);
   const [showMobileMenu, setShowMobileMenu] = useState(false);

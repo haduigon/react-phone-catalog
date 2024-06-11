@@ -33,7 +33,7 @@ export const ProductPage = () => {
   let copyOfProducts: Product[] = [];
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo(-10, -10);
   }, []);
 
   if (state.products) {
@@ -45,7 +45,7 @@ export const ProductPage = () => {
 
     if (search.length > 0) {
       let copyOfCopy = [...copyOfProducts]
-      copyOfProducts = [...copyOfCopy.filter(phone => phone.name.includes(search))];
+      copyOfProducts = [...copyOfCopy.filter(phone => phone.name.toLowerCase().includes(search.toLowerCase()))];
       if (copyOfProducts.length === 0) {
         return <NoResults headline='Nothing was found'/>
       }
@@ -86,7 +86,6 @@ export const ProductPage = () => {
         <div>
         <p className="font-header">{getPageHeader(location.pathname)}</p>
       <div className="font-models-amount">{copyOfProducts.length} models</div>
-    {console.count()}
 
       <div className="select-block">
 

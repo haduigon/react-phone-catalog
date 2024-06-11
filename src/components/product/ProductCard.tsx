@@ -27,10 +27,20 @@ export const ProductCard: React.FC = () => {
 
   const [picSet, setPicSet] = useState<string[]>([]);
   const [about, setAbout] = useState<string[]>([]);
+  const [localCopy, setLocalCopy] = useState<Product>();
+
+  const [fullPrice, setFullPrice] = useState<string>('');
+  const [finalPrice, setFinalPrice] = useState<string>('');
+
+  const [accidentalArray, setAccidentalArray] = useState<Product[]>([]);
 
   useEffect(() => {
+    setAccidentalArray(getRandomArray(state.products));
     if (productId) {
       setProduct(
+        state.products.find(phone => phone.id === +productId) as Product,
+      );
+      setLocalCopy(
         state.products.find(phone => phone.id === +productId) as Product,
       );
       if (product) {
@@ -51,6 +61,27 @@ export const ProductCard: React.FC = () => {
   useEffect(() => {
     setBigPic(picSet[0]);
   }, [picSet, topPageRef.current, product, selectedColor]);
+
+  useEffect(() => {
+    const newProduct: any = { ...localCopy };
+
+    const newPrice = Number(localCopy?.price.slice(1));
+
+    if (product?.price) {
+      if (selectedCapacity === '64 GB') {
+        newProduct.price = '$' + Math.round(newPrice);
+      }
+      if (selectedCapacity === '256 GB') {
+        newProduct.price = '$' + Math.round(newPrice * 1.2);
+      }
+      if (selectedCapacity === '512 GB') {
+        newProduct.price = '$' + Math.round(newPrice * 1.3);
+      }
+      setProduct(newProduct);
+      setFullPrice(`$${Number(+newProduct.price.slice(1) * (1 - newProduct.discount / 100)).toFixed(2)}`);
+      setFinalPrice(`$${Number(+newProduct.price.slice(1) * (1 - newProduct.discount / 100)).toFixed(2)}`);
+    }
+  }, [selectedCapacity, localCopy]);
 
   if (product === undefined) {
     return <NoResults />;
@@ -199,9 +230,11 @@ export const ProductCard: React.FC = () => {
                   <div className="upper-box-text mb-16">
                     <div className="dflex">
                       <div className="product-card-price mr-8">
-                        {product?.price}
+                        {finalPrice}
                       </div>
-                      <div className="done grey font22">{product?.price}</div>
+                      <div className="done grey font22">
+                        {fullPrice}
+                      </div>
                     </div>
                   </div>
 
@@ -327,7 +360,7 @@ export const ProductCard: React.FC = () => {
       <PaginationSlider
         pageName="suggested"
         headline="You may also like"
-        array={getRandomArray(state.products)}
+        array={accidentalArray}
       />
     </div>
   );

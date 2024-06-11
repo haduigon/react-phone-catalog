@@ -69,8 +69,14 @@ export const CartPage: React.FC = () => {
           <div className="summary">
             {cartSummary > 0 && (
               <>
-                <div>{cartSummary}</div>
-                <div className="mb-24">Total</div>
+                <div>{`$${cartSummary}`}</div>
+                <div className="">Total</div>
+                <div className="mb-24">
+                  {state.card.length}
+                  &nbsp;
+                  item
+                  {state.card.length > 1 && 's'}
+                </div>
               </>
             )}
             <div className="grey-line mb-24" style={{ width: '90%' }} />

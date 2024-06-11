@@ -25,6 +25,9 @@ export const CartItem : React.FC<Props> = ({ summary, reduce, phone }) => {
     }
   }
 
+  const totalMoney = Number(phone?.price.slice(1))
+    * state.card.filter(elem => elem.id === phone.id).length;
+
   return (
     <div className="item-container mb-16">
       <div className="cart-element">
@@ -88,8 +91,7 @@ export const CartItem : React.FC<Props> = ({ summary, reduce, phone }) => {
             </div>
           </div>
           <div className="cart-price " data-cy="productQauntity">
-            {Number(phone?.price.slice(1))
-            * state.card.filter(elem => elem.id === phone.id).length}
+            {`$${totalMoney}`}
           </div>
         </div>
       </div>
