@@ -4,7 +4,7 @@ import { getCurrentItems, useSetCurrentPage } from '../helpers/utils';
 import { ProductItem } from '../components/product/ProductItem';
 import '../pages/ProductPage/product.scss';
 import '../pages/home/homePage.scss';
-import { Product } from '../types';
+import { FinalProduct, Product } from '../types';
 
 type Props = {
   pageName: string;
@@ -47,7 +47,7 @@ export const PaginationSlider: React.FC<Props> = ({
 
       <div className="chunk-container">
         {currentItems.map(phone => {
-          return <ProductItem product={phone} key={phone.id} />;
+          return <ProductItem product={phone as FinalProduct} key={phone.id} />;
         })}
       </div>
     </div>

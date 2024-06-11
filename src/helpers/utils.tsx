@@ -89,7 +89,7 @@ export function useDeleteAllSimilar() {
           const index = copy.findIndex(elem => elem.id === phone.id);
 
           copy.splice(index, 1);
-          dispatch({ type: ACTIONS.DELETE_FROM_CARD, payload: phone });
+          dispatch({ type: ACTIONS.DELETE_FROM_CARD, payload: phone as FinalProduct });
         }
       });
 

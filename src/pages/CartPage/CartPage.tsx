@@ -25,7 +25,6 @@ export const CartPage: React.FC = () => {
 
   useEffect(() => {
     let totalSumm = 0;
-
     state.card.map(elem => {
       totalSumm += +elem.finalPrice.slice(1);
 

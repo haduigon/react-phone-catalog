@@ -10,8 +10,8 @@ import { useSearchParams } from "react-router-dom";
 type Action = { type: ACTIONS.SET_ITEMS_PER_PAGE, payload: string }
   | { type: ACTIONS.SET_FAVOUTITES, payload: Product }
   | { type: ACTIONS.SET_PRODUCTS, payload: Product[] }
-  | { type: ACTIONS.ADD_TO_CARD, payload: Product }
-  | { type: ACTIONS.DELETE_FROM_CARD, payload: Product }
+  | { type: ACTIONS.ADD_TO_CARD, payload: FinalProduct }
+  | { type: ACTIONS.DELETE_FROM_CARD, payload: FinalProduct }
   | { type: ACTIONS.DELETE_FROM_FAVOURITES, payload: Product }
   | { type: ACTIONS.RENDER_PAGE }
 

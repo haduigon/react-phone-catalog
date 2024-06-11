@@ -22,7 +22,9 @@ export const CartItem : React.FC<Props> = ({ summary, reduce, phone }) => {
 
   function deleteItem() {
     if (state.card.filter(elem => elem.id === phone.id).length > 0) {
-      reduce(+phone.finalPrice.slice(1));
+      const reduceValue = +phone.finalPrice.slice(1);
+
+      reduce(reduceValue);
       dispatch({ type: ACTIONS.DELETE_FROM_CARD, payload: phone });
     }
   }
@@ -83,7 +85,7 @@ export const CartItem : React.FC<Props> = ({ summary, reduce, phone }) => {
               className="cart-square-border"
               onClick={() => {
                 addItem();
-                summary(+phone.price.slice(1));
+                summary(+phone.finalPrice.slice(1));
               }}
               role="button"
               tabIndex={0}

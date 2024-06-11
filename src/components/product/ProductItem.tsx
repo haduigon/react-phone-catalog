@@ -10,14 +10,22 @@ React, {
 } from "react";
 import { StateContext } from '../../AppContext';
 import { ACTIONS, getFavourite } from '../../helpers/utils';
-import { Product } from '../../types';
+import {
+  FinalProduct,
+} from '../../types';
 import { useDeleteAllSimilar } from '../../helpers/utils';
 
 type Props = {
-  product: Product,
+  product: FinalProduct,
 }
 
 export const ProductItem: React.FC<Props> = ({ product }) => {
+
+  function addFinalPrice() {
+    const copy = { ...product }
+    copy.finalPrice = '$' + (+product.price.slice(1) * (1 - product.discount / 100)).toFixed(2);
+    return copy;
+  }
 
   const { state, dispatch } = useContext(StateContext);
 
@@ -33,8 +41,9 @@ export const ProductItem: React.FC<Props> = ({ product }) => {
 
   const addToCart = () => {
     const cardData = localStorage.getItem('cart') || '[{}]';
-    if (!getFavourite(JSON.parse(cardData), product)) {
-      dispatch({ type: ACTIONS.ADD_TO_CARD, payload: product });
+    
+    if (!getFavourite(JSON.parse(cardData), addFinalPrice())) {
+      dispatch({ type: ACTIONS.ADD_TO_CARD, payload: addFinalPrice() });
     } else {
       deleteAllSimilar(product)
     }

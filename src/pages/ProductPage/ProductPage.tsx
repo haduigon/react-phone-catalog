@@ -12,7 +12,7 @@ import {
 } from '../../helpers/utils';
 import { useLocation, useSearchParams, } from 'react-router-dom';
 import { Pagination } from '../../pagination/Pagination';
-import { Product } from '../../types';
+import { FinalProduct, Product } from '../../types';
 import { NoResults } from '../NoResults/NoResults';
 import { ProductItem } from '../../components/product/ProductItem';
 
@@ -139,7 +139,7 @@ export const ProductPage = () => {
 
         {currentItems.map(product => {
           return (
-            <ProductItem product={product} key={product.id}/>
+            <ProductItem product={product as FinalProduct} key={product.id}/>
           )
         })}
       </div>

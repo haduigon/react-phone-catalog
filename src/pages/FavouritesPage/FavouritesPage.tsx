@@ -4,6 +4,7 @@ import { ProductItem } from '../../components/product/ProductItem';
 import './FavouritesPage.scss';
 import { StateContext } from '../../AppContext';
 import { NoResults } from '../NoResults/NoResults';
+import { FinalProduct } from '../../types';
 
 export const FafouritesPage: React.FC = () => {
   const { state } = useContext(StateContext);
@@ -31,7 +32,7 @@ export const FafouritesPage: React.FC = () => {
     <div className="list-container">
       {copy.map(item => {
         return (
-          <ProductItem product={item} key={item.id} />
+          <ProductItem product={item as FinalProduct} key={item.id} />
         );
       })}
     </div>
